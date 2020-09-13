@@ -2,7 +2,7 @@
 name = "disco"
 version = "0.0.1"
 description = ""
-# authors = ["sh1ma <in9lude@gmail.com>"]
+authors = ["sh1ma <in9lude@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
