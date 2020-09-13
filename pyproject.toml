@@ -6,6 +6,7 @@ authors = ["sh1ma <in9lude@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+apywrapper = "^0.1.9"
 
 [tool.poetry.dev-dependencies]
 pylint = "^2.6.0"
