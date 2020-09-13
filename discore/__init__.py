@@ -1,1 +1,1 @@
-from ._api import Api
+from ._api import DiscordApi
