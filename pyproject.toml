@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "disco"
+name = "discore"
 version = "0.0.1"
 description = ""
 authors = ["sh1ma <in9lude@gmail.com>"]
