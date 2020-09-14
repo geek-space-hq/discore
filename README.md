@@ -2,4 +2,6 @@
 
 # discore
 
+![check](https://github.com/geek-space-hq/discore/workflows/check/badge.svg?branch=develop)
+
 lightweight Discord API Wrapper
