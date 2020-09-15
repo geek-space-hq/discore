@@ -1,3 +1,4 @@
+from enum import IntEnum
 from typing import Optional
 
 from pydantic import BaseModel
@@ -15,8 +16,11 @@ class User(BaseModel):
     avatar: Optional[str] = None
     locale: Optional[str] = None
     email: Optional[str] = None
-    flags: Optional[int] = None
+    flags: Optional["UserFlag"] = None
     premium_type: Optional[int] = None
+    public_flags: Optional["UserFlag"] = None
+
+
 class UserFlag(IntEnum):
     Null = 0
     DiscordEmployee = 1 << 0
@@ -33,3 +37,8 @@ class UserFlag(IntEnum):
     VerifiedBot = 1 << 16
     VerifiedBotDeveloper = 1 << 17
 
+
+class PremiumType(IntEnum):
+    Null = 0
+    NitroClassic = 1
+    Nitro = 2
