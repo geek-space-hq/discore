@@ -12,9 +12,9 @@ class User(BaseModel):
     system: bool = Field(default=False)
     mfa_enabled: bool = Field(default=False)
     verified: bool = Field(default=False)
-    premium_type: Optional[int] = None
     avatar: Optional[str] = None
     locale: Optional[str] = None
     email: Optional[str] = None
     flags: Optional[int] = None
+    premium_type: Optional[int] = None
     public_flags: Optional[int] = None
