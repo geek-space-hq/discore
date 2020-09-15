@@ -1,16 +1,17 @@
-from dataclasses import dataclass, field
 from typing import List, Optional
 
+from pydantic import BaseModel
+from pydantic.fields import Field
 
-@dataclass
-class User:
+
+class User(BaseModel):
     id: str
     username: str
     discriminator: str
-    bot: bool = field(default=False)
-    system: bool = field(default=False)
-    mfa_enabled: bool = field(default=False)
-    verified: bool = field(default=False)
+    bot: bool = Field(default=False)
+    system: bool = Field(default=False)
+    mfa_enabled: bool = Field(default=False)
+    verified: bool = Field(default=False)
     premium_type: Optional[int] = None
     avatar: Optional[str] = None
     locale: Optional[str] = None
