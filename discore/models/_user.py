@@ -1,5 +1,5 @@
 from enum import IntEnum
-from typing import Optional
+from typing import List, Optional
 
 from pydantic import BaseModel
 from pydantic.fields import Field
@@ -42,3 +42,20 @@ class PremiumType(IntEnum):
     Null = 0
     NitroClassic = 1
     Nitro = 2
+
+
+class Connection:
+    id: str
+    name: str
+    type: str
+    verified: bool
+    firend_sync: bool
+    show_activity: bool
+    visibility: "VisibilityType"
+    revoked: Optional[bool] = None
+    integrations: Optional[List["Integration"]] = None
+
+
+class VisibilityType(IntEnum):
+    Null = 0
+    Everyone = 1
