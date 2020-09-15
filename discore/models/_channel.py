@@ -1,4 +1,5 @@
 from datetime import datetime
+from enum import IntEnum
 from typing import List, Optional, Union
 
 from pydantic import BaseModel
@@ -25,6 +26,16 @@ class Channel(BaseModel):
     icon: Optional[str] = None
     parent_id: Optional[str] = None
     last_pin_timestamp: Optional[datetime] = None
+
+
+class ChannelTypes(IntEnum):
+    GUILD_TEXT = 0
+    DM = 1
+    GUILD_VOICE = 2
+    GROUP_DM = 3
+    GUILD_CATEGORY = 4
+    GUILD_NEWS = 5
+    GUILD_STORE = 6
 
 
 class OverwriteReceiving(BaseModel):
