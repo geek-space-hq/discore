@@ -6,6 +6,7 @@ from pydantic import BaseModel
 from pydantic.fields import Field
 
 # pylint: disable=unused-import
+from ._guild import GuildMember, Role
 from ._user import User
 
 
@@ -36,6 +37,36 @@ class ChannelTypes(IntEnum):
     GUILD_CATEGORY = 4
     GUILD_NEWS = 5
     GUILD_STORE = 6
+
+
+class Message(BaseModel):
+    id: str
+    channel_id: str
+    aurhor: "User"
+    content: str
+    timestamp: datetime
+    tts: bool
+    mention_everyone: bool
+    mentions: List["UserMentioned"]
+    mention_roles: List["Role"]
+    attachments: List["Attachment"]
+    embeds: List["Embed"]
+    pinned: bool
+    type: "MessageType"
+    guild_id: Optional[str] = None
+    member: Optional["GuildMember"] = None
+    mention_channels: Optional[List["ChannelMention"]] = None
+    reactions: Optional[List["Reaction"]] = None
+    nonce: Optional[Union[int, str]] = None
+    webhook_id: Optional[str] = None
+    activity: Optional["MessageActivity"] = None
+    application: Optional["MessageApplication"] = None
+    message_reference: Optional["MessageReference"] = None
+    flags: Optional[int] = None
+
+
+class UserMentioned(User):
+    member: "GuildMember"
 
 
 class OverwriteReceiving(BaseModel):
