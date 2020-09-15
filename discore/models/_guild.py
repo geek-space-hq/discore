@@ -82,9 +82,9 @@ class VerificationLevel(IntEnum):
 
 class PremiumTier(IntEnum):
     NONE = 0
-    TIER1 = 1
-    TIER2 = 2
-    TIER3 = 3
+    TIER_1 = 1
+    TIER_2 = 2
+    TIER_3 = 3
 
 
 class SystemChannelFlag(IntEnum):
