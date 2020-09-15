@@ -1,7 +1,5 @@
 # type: ignore
 
-from typing import no_type_check
-
 from apywrapper import Apy, get
 
 from .models import User
