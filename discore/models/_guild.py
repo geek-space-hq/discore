@@ -5,9 +5,8 @@ from typing import List, Optional
 from pydantic import BaseModel
 from pydantic.fields import Field
 
-from ._channel import Channel
-
 # pylint: disable=unused-import
+from ._channel import Channel
 from ._emoji import Emoji
 from ._user import User
 from ._voice import VoiceState

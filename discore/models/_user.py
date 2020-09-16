@@ -4,6 +4,9 @@ from typing import List, Optional
 from pydantic import BaseModel
 from pydantic.fields import Field
 
+# pylint: disable=unused-import
+from ._guild import Integration
+
 
 class User(BaseModel):
     id: str
