@@ -1,5 +1,3 @@
-from dacite import from_dict
-
 from discore.models import Emoji
 
 
@@ -19,4 +17,4 @@ def test_serialize():
         "animated": False,
     }
 
-    assert from_dict(Emoji, example_user_data)
+    assert Emoji.parse_obj(example_user_data)
