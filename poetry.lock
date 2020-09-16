@@ -12,7 +12,7 @@ description = "make wrapper for RESTful API"
 name = "apywrapper"
 optional = false
 python-versions = ">=3.8,<4.0"
-version = "0.1.9"
+version = "0.1.10"
 
 [package.dependencies]
 dacite = ">=1.5.1,<2.0.0"
@@ -423,8 +423,8 @@ appdirs = [
     {file = "appdirs-1.4.4.tar.gz", hash = "sha256:7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"},
 ]
 apywrapper = [
-    {file = "apywrapper-0.1.9-py3-none-any.whl", hash = "sha256:3fa34253aa8f20969d3211e4ff543188fe0789e82d52f62a1b02d8e1fb50659c"},
-    {file = "apywrapper-0.1.9.tar.gz", hash = "sha256:01b5a7668ffe070079e69fd7b1910e7d150a70b37cd782474e491cd8da3b0666"},
+    {file = "apywrapper-0.1.10-py3-none-any.whl", hash = "sha256:9672ed12d2c6a8552d7c30b20c2879002c9795f9afe5dcc95856a24ac2b2970f"},
+    {file = "apywrapper-0.1.10.tar.gz", hash = "sha256:fadef503a9b57da37fb1f7818d1e48237a47026456b88323b41f68dc48357471"},
 ]
 astroid = [
     {file = "astroid-2.4.2-py3-none-any.whl", hash = "sha256:bc58d83eb610252fd8de6363e39d4f1d0619c894b0ed24603b881c02e64c7386"},
