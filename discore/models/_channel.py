@@ -87,6 +87,51 @@ class MessageType(IntEnum):
     GUILD_DISCOVERY_REQUALIFIED = 15
 
 
+class MessageActivity(BaseModel):
+    type: int
+    party_id: Optional[str] = None
+
+
+class MessageApplication(BaseModel):
+    id: str
+    description: str
+    name: str
+    cover_image: Optional[str] = None
+    icon: Optional[str] = None
+
+
+class MessageReference(BaseModel):
+    channel_id: str
+    message_id: Optional[str] = None
+    guild_id: Optional[str] = None
+
+
+class MessageActivityType(IntEnum):
+    JOIN = 1
+    SPECTATE = 2
+    LISTEN = 3
+    JOIN_REQUEST = 5
+
+
+class MessageFlag(IntEnum):
+    CROSSPOSTED = 1 << 0
+    IS_CROSSPOST = 1 << 1
+    SUPPRESS_EMBEDS = 1 << 2
+    SOURCE_MESSAGE_DELETED = 1 << 3
+    URGENT = 1 << 4
+
+
+class FollowedChannel(BaseModel):
+    channel_id: str
+    webhook_id: str
+
+
+class Reaction:
+    count: int
+    me: bool
+    emoji: "Emoji"
+
+
 class OverwriteReceiving(BaseModel):
     id: str
     type: str
