@@ -42,7 +42,7 @@ class Guild(BaseModel):
     voice_states: Optional[List["VoiceState"]] = None
     members: Optional[List["GuildMember"]] = None
     channels: Optional[List["Channel"]] = None
-    presences: Optional[List["PresenceUpdate"]] = None
+    presences: Optional[List] = None
     max_presences: Optional[int] = None
     max_members: Optional[int] = None
     vanity_url_code: Optional[str] = None
