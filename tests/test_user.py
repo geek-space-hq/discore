@@ -1,5 +1,3 @@
-from dacite import from_dict
-
 from discore.models import User
 
 
@@ -16,4 +14,4 @@ def test_serialize():
         "public_flags": 64,
     }
 
-    assert from_dict(User, example_user_data)
+    assert User.parse_obj(example_user_data)

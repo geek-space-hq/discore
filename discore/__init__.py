@@ -1,1 +1,1 @@
-from ._api import DiscordApi
+from __future__ import annotations
