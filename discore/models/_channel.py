@@ -165,7 +165,7 @@ class Embed(BaseModel):
     video: Optional["EmbedVideo"] = None
     provider: Optional["EmbedProvider"] = None
     author: Optional["EmbedAuthor"] = None
-    fields: Optional[List["EmbedField"]] = None
+    fields_: Optional[List["EmbedField"]] = Field(default=None, alias="fields")
 
 
 class EmbedType(str, Enum):
