@@ -1,11 +1,12 @@
 from datetime import datetime
-from enum import IntEnum
+from enum import Enum, IntEnum
 from typing import List, Optional, Union
 
 from pydantic import BaseModel
 from pydantic.fields import Field
 
 # pylint: disable=unused-import
+from ._emoji import Emoji
 from ._guild import GuildMember, Role
 from ._user import User
 
@@ -149,3 +150,72 @@ class OverwriteSending(BaseModel):
 
 
 Overwrite = Union[OverwriteReceiving, OverwriteSending]
+
+
+class Embed(BaseModel):
+    title: Optional[str] = None
+    type: Optional["EmbedType"] = None
+    description: Optional[str] = None
+    url: Optional[str] = None
+    timestamp: Optional[datetime] = None
+    color: Optional[int] = None
+    footer: Optional["EmbedFooter"] = None
+    image: Optional["EmbedImage"] = None
+    thumbnail: Optional["EmbedThumbnail"] = None
+    video: Optional["EmbedVideo"] = None
+    provider: Optional["EmbedProvider"] = None
+    author: Optional["EmbedAuthor"] = None
+    fields: Optional[List["EmbedField"]] = None
+
+
+class EmbedType(str, Enum):
+    rich = "rich"
+    image = "image"
+    video = "video"
+    gifv = "gifv"
+    article = "article"
+    link = "link"
+
+
+class EmbedThumbnail(BaseModel):
+    url: Optional[str] = None
+    proxy_url: Optional[str] = None
+    height: Optional[int] = None
+    width: Optional[int] = None
+
+
+class EmbedVideo(BaseModel):
+    url: Optional[str] = None
+    height: Optional[int] = None
+    width: Optional[int] = None
+
+
+class EmbedImage(BaseModel):
+    url: Optional[str] = None
+    proxy_url: Optional[str] = None
+    height: Optional[int] = None
+    width: Optional[int] = None
+
+
+class EmbedProvider(BaseModel):
+    name: Optional[str] = None
+    url: Optional[str] = None
+
+
+class EmbedAuthor(BaseModel):
+    name: Optional[str] = None
+    url: Optional[str] = None
+    icon_url: Optional[str] = None
+    proxy_icon_url: Optional[str] = None
+
+
+class EmbedFooter(BaseModel):
+    text: str
+    icon_url: Optional[str] = None
+    proxy_icon_url: Optional[str] = None
+
+
+class EmbedField(BaseModel):
+    name: str
+    value: str
+    inline: Optional[bool] = None
