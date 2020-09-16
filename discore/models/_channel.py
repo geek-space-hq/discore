@@ -30,7 +30,7 @@ class Channel(BaseModel):
     last_pin_timestamp: Optional[datetime] = None
 
 
-class ChannelTypes(IntEnum):
+class ChannelType(IntEnum):
     GUILD_TEXT = 0
     DM = 1
     GUILD_VOICE = 2
@@ -219,3 +219,32 @@ class EmbedField(BaseModel):
     name: str
     value: str
     inline: Optional[bool] = None
+
+
+class Attachment(BaseModel):
+    id: str
+    filename: str
+    size: int
+    url: str
+    proxy_url: str
+    height: Optional[int] = None
+    width: Optional[int] = None
+
+
+class ChannelMention(BaseModel):
+    id: str
+    guild_id: str
+    type: "ChannelType"
+    name: str
+
+
+class AllowedMentionType(str, Enum):
+    ROLE_MENTIONS = "roles"
+    USER_MENTIONS = "users"
+    EVERYONE_MENTINS = "everyone"
+
+
+class AllowedMention(BaseModel):
+    parse: "AllowedMentionType"
+    roles: List[str]
+    users: List[str]
