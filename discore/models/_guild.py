@@ -1,15 +1,17 @@
+from __future__ import annotations
+
 from datetime import datetime
 from enum import Enum, IntEnum
-from typing import List, Optional
+from typing import TYPE_CHECKING, List, Optional
 
 from pydantic import BaseModel
 from pydantic.fields import Field
 
-# pylint: disable=unused-import
-from ._channel import Channel
-from ._emoji import Emoji
-from ._user import User
-from ._voice import VoiceState
+if TYPE_CHECKING:
+    from ._channel import Channel
+    from ._emoji import Emoji
+    from ._user import User
+    from ._voice import VoiceState
 
 
 class Guild(BaseModel):

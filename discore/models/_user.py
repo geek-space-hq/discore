@@ -1,11 +1,12 @@
+from __future__ import annotations
+
 from enum import IntEnum
 from typing import List, Optional
 
 from pydantic import BaseModel
 from pydantic.fields import Field
 
-# pylint: disable=unused-import
-from ._guild import Integration
+from ._guild import GuildMember, Integration
 
 
 class User(BaseModel):
@@ -19,9 +20,13 @@ class User(BaseModel):
     avatar: Optional[str] = None
     locale: Optional[str] = None
     email: Optional[str] = None
-    flags: Optional["UserFlag"] = None
+    flags: Optional[UserFlag] = None
     premium_type: Optional[int] = None
-    public_flags: Optional["UserFlag"] = None
+    public_flags: Optional[UserFlag] = None
+
+
+class UserMentioned(User):
+    member: GuildMember
 
 
 class UserFlag(IntEnum):
@@ -54,11 +59,14 @@ class Connection:
     verified: bool
     firend_sync: bool
     show_activity: bool
-    visibility: "VisibilityType"
+    visibility: VisibilityType
     revoked: Optional[bool] = None
-    integrations: Optional[List["Integration"]] = None
+    integrations: Optional[List[Integration]] = None
 
 
 class VisibilityType(IntEnum):
     Null = 0
     Everyone = 1
+
+
+User.update_forward_refs()

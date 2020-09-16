@@ -1,14 +1,16 @@
+from __future__ import annotations
+
 from datetime import datetime
 from enum import Enum, IntEnum
-from typing import List, Optional, Union
+from typing import TYPE_CHECKING, List, Optional, Union
 
 from pydantic import BaseModel
 from pydantic.fields import Field
 
-# pylint: disable=unused-import
-from ._emoji import Emoji
-from ._guild import GuildMember, Role
-from ._user import User
+if TYPE_CHECKING:
+    from ._emoji import Emoji
+    from ._guild import GuildMember, Role
+    from ._user import User, UserMentioned
 
 
 class Channel(BaseModel):
@@ -64,10 +66,6 @@ class Message(BaseModel):
     application: Optional["MessageApplication"] = None
     message_reference: Optional["MessageReference"] = None
     flags: Optional[int] = None
-
-
-class UserMentioned(User):
-    member: "GuildMember"
 
 
 class MessageType(IntEnum):

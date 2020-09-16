@@ -1,9 +1,11 @@
-from typing import Optional
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, Optional
 
 from pydantic import BaseModel
 
-# pylint: disable=unused-import
-from ._guild import GuildMember
+if TYPE_CHECKING:
+    from ._guild import GuildMember
 
 
 class VoiceState(BaseModel):
